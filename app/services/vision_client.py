@@ -10,9 +10,11 @@ class FSHDResult(BaseModel):
 
 class VisionModelClient:
     def __init__(self):
+        api_key = settings.OPENAI_API_KEY or settings.SILICONFLOW_API_KEY
+        base_url = settings.OPENAI_BASE_URL or settings.SILICONFLOW_BASE_URL
         self.client = OpenAI(
-            api_key=settings.SILICONFLOW_API_KEY,
-            base_url=settings.SILICONFLOW_BASE_URL,
+            api_key=api_key,
+            base_url=base_url,
         )
 
     def infer_from_base64(self, base64_str: str) -> FSHDResult:
@@ -28,7 +30,7 @@ class VisionModelClient:
         """
 
         response = self.client.chat.completions.create(
-            model="Qwen/Qwen2-VL-72B-Instruct",
+            model=settings.OPENAI_MODEL,
             # 可备选: "Qwen/Qwen-VL-Plus", "OpenGVLab/InternVL2-26B"
             messages=[
                 {

@@ -6,3 +6,6 @@ sqlalchemy==2.0.35
 aiosqlite                     # SQLite 支持
 pydantic-settings
 python-dotenv
+numpy
+opencv-python
+mediapipe

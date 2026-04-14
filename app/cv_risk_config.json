@@ -1,0 +1,88 @@
+{
+  "feature_rules": {
+    "close_eye_force": {
+      "palpebral_gap_left_norm": {
+        "thresholds": [0.020, 0.035, 0.055],
+        "direction": "higher_abnormal",
+        "weight": 0.45,
+        "region_key": "left_eyelid",
+        "region_label": "left eyelid"
+      },
+      "palpebral_gap_right_norm": {
+        "thresholds": [0.020, 0.035, 0.055],
+        "direction": "higher_abnormal",
+        "weight": 0.45,
+        "region_key": "right_eyelid",
+        "region_label": "right eyelid"
+      },
+      "palpebral_gap_asym": {
+        "thresholds": [0.008, 0.016, 0.028],
+        "direction": "higher_abnormal",
+        "weight": 0.10,
+        "region_key": "eyelid_symmetry",
+        "region_label": "eyelid symmetry"
+      }
+    },
+    "pout": {
+      "lip_corner_distance_norm": {
+        "thresholds": [0.38, 0.48, 0.58],
+        "direction": "higher_abnormal",
+        "weight": 0.25,
+        "region_key": "mouth_corner_span",
+        "region_label": "mouth corner span"
+      },
+      "lip_nose_distance_norm": {
+        "thresholds": [0.24, 0.20, 0.16],
+        "direction": "lower_abnormal",
+        "weight": 0.05,
+        "region_key": "upper_lip_projection",
+        "region_label": "upper lip projection"
+      },
+      "lip_asym_proxy_norm": {
+        "thresholds": [0.020, 0.036, 0.055],
+        "direction": "higher_abnormal",
+        "weight": 0.70,
+        "region_key": "mouth_symmetry",
+        "region_label": "mouth symmetry"
+      }
+    },
+    "puff_cheek": {
+      "cheek_area_left_norm": {
+        "thresholds": [0.40, 0.36, 0.32],
+        "direction": "lower_abnormal",
+        "weight": 0.15,
+        "region_key": "left_cheek",
+        "region_label": "left cheek"
+      },
+      "cheek_area_right_norm": {
+        "thresholds": [0.40, 0.36, 0.32],
+        "direction": "lower_abnormal",
+        "weight": 0.15,
+        "region_key": "right_cheek",
+        "region_label": "right cheek"
+      },
+      "cheek_area_ratio": {
+        "thresholds": [1.06, 1.12, 1.22],
+        "direction": "higher_abnormal",
+        "weight": 0.70,
+        "region_key": "cheek_symmetry",
+        "region_label": "cheek symmetry"
+      }
+    }
+  },
+  "action_weights": {
+    "close_eye_force": 0.40,
+    "puff_cheek": 0.35,
+    "pout": 0.25
+  },
+  "risk_level_thresholds": {
+    "low_max": 34,
+    "medium_max": 64
+  },
+  "short_advice": {
+    "low": "Current CV risk is low. Keep standard follow-up and recheck if symptoms change.",
+    "medium": "Current CV risk is medium. Recommend retake and clinical review with neuromuscular specialist.",
+    "high": "Current CV risk is high. Recommend in-person neurology evaluation and gene testing discussion.",
+    "incomplete": "Input is incomplete or low quality. Please retake the required three actions clearly."
+  }
+}
